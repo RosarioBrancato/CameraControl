@@ -1,0 +1,34 @@
+Aufbau
+	- 3 Ansichten
+		- Panorama: Hauptseite; Das aktuellste Panoramabild steht im Zentrum; 
+		- Archiv: Ältere Panoramabilder werden nach datum aufgelistet;
+		- Adminbereich: Der Admin kann verschiedene einstellugen vornehmen
+	
+	- Technik
+		- HTML/CSS: Grundbaustein der Website
+		- JavaScript/jQuery: Funktionalität der Website
+		- PHP: Hintergrundslogik für die generierung von Bilder.
+		
+	- Taktik
+		- Windows Task Scheduler steuert die generierung der bilder.
+		- Die Website dient nur als schöne Ansicht für die präsentierung der bilder.
+		- Das laden und speichern der bilder wird serialisiert, damit das speichern nicht ins
+			konflikt mit dem löschen oder laden vom bild gerät.
+		
+	- Erstellung der Panoramabilder
+		- Bild; 3 Mal Drehen mit Panspeed 0; Bild; Etc.
+		
+	- Anzeige der Panoramabilder
+		- Website übernimmt die Anzeige.
+		
+	- Speicherung der Panoramabilder
+		- Das Panoramabild wird aus drei einzelbilder zusammengesetzt. sobald die bilder zusammengesetzt wurden,
+			wird das Panoramabild separat gespeichert und die drei einzelbilder werden gelöscht.
+		- Name des Bildes ist der datum und die uhrzeit
+		
+	- Organisation des archives
+		- Im archiv befinden sich die älteren aufnahmen. sie besitzen ebenfalls den datum und die uhrzeit als namen.
+		- sobald ein neues bild ins archiv gesetzt wird, wird kontrolliert ob es bilder hat, 
+			die älter sind als drei wochen.
+		
+		
