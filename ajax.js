@@ -7,13 +7,16 @@ var URL_CAM = 'http://10.142.126.233/cgi-bin/camctrl.cgi';
 
 window.setInterval(function() { 
 	$.ajax({
-		url: URL_HOME + 'image_getter.php',
+		url: URL_HOME + 'file_control.php',
 		type: 'get',
+		data: { panorama: "panorama"},
 		dataType: 'json',
 		success: function(data) {
-			var time = new Date();
-			$('#cam_view').attr('src', data.path + '?' + time.getTime());
-			//alert('success: ' + data);
+			if(data.path.length > 0) {
+				var time = new Date();
+				$('#cam_view').attr('src', data.path + '?' + time.getTime());
+				//alert('success: ' + data);
+			}
 		},
 		error: function(xhr, status, error) {
 			$('#cam_view').attr('src', URL_DEFAULT_IMG);
