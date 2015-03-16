@@ -1,5 +1,5 @@
 var URL_HOME = 'http://localhost:84/github/cam-ctrl/';
-var URL_DEFAULT_IMG = 'http://localhost:84/github/cam-ctrl/image/default.png';
+var URL_DEFAULT_IMG = 'http://localhost:84/github/cam-ctrl/image/default2.jpg';
 
 //var URL_HOME = 'http://localhost/cam-ctrl/';
 //var URL_DEFAULT_IMG = 'http://localhost/cam-ctrl/image/default.png';
@@ -13,14 +13,13 @@ window.setInterval(function() {
 		dataType: 'json',
 		success: function(data) {
 			if(data.path.length > 0) {
-				var time = new Date();
-				$('#cam_view').attr('src', data.path + '?' + time.getTime());
+				$('#cam_view').attr('src', data.path);
 				//alert('success: ' + data);
 			}
 		},
 		error: function(xhr, status, error) {
 			$('#cam_view').attr('src', URL_DEFAULT_IMG);
-			alert('failed: ' + error);
+			//alert('failed: ' + error);
 		}
 	});
 }, 1000);
