@@ -5,6 +5,7 @@
 	define('URL_PANORAMA', 'http://localhost:84/github/cam-ctrl/image/panorama/');
 	define('URL_ARCHIVE', 'http://localhost:84/github/cam-ctrl/image/archive/');
 	
+	define('URL_CAM_CTRL', 'http://10.142.126.233/cgi-bin/camctrl.cgi');
 	define('URL_CAM_SNAPSHOT', 'http://10.142.126.233/cgi-bin/video.jpg');
 	
 	define('FILE_LOCKED', 'image/locked.txt');
