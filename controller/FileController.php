@@ -18,6 +18,16 @@ class FileController {
 		return '{"path" : "'. $url . '" }';
 	}
 	
+	public function getArchive() {
+		//TO-DO
+	}
+	
+	public function getNewArchivePicture() {
+		//TO-DO
+	}
+	
+	
+	
 	public function createPanorama() {
 		//Lock access to pictures
 		$this->lock();

@@ -2,3 +2,26 @@ img {
 	border: 1px solid black;
 	width: 100%;
 }
+
+.selected {
+	font-weight: bold;
+}
+
+
+/* TEMPLATES CORRECTIONS */
+
+.nav > li > button {
+	padding: 30px;
+}
+
+.navbar-nav > li > button {
+	line-height: normal;
+}
+
+.btn-link {
+    font-size: 1.25em;
+}
+
+.btn-link:hover, .btn-link:focus {
+	text-decoration: none;
+}
