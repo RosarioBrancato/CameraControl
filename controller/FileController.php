@@ -4,7 +4,7 @@ class FileController {
 	
 	public function getPanorama() {		
 		if($this->isLocked()) {
-			return '{"path" : "" }';
+			return '{ "path" : "" }';
 		}
 		
 		//Get filename
@@ -15,11 +15,21 @@ class FileController {
 			$url = URL_PANORAMA . $filename;
 		}
 		
-		return '{"path" : "'. $url . '" }';
+		return '{ "path" : "'. $url . '" }';
 	}
 	
 	public function getArchive() {
-		//TO-DO
+		if($this->isLocked(true, 60)) {
+			return '{ "path" : "" }';
+		}
+		
+		$files = glob('image/archive/*');
+		$archive = array();
+		foreach($files as $file) {
+			array_push($archive, URL_ARCHIVE . basename($file));
+		}
+		
+		echo json_encode($archive);
 	}
 	
 	public function getNewArchivePicture() {
@@ -153,19 +163,22 @@ class FileController {
 		}
 	}
 	
-	private function isLocked() {
-		/*$sleep_counter = 0;
-		while(!file_exists(FILE_UNLOCKED)) {
-			sleep(1);
-			$sleep_counter = $sleep_counter + 1;
-			if($sleep_counter > 10) {
-				return true;
+	private function isLocked($wait = false, $seconds = 10) {
+		if($wait) {
+			$sleep_counter = 0;
+			while(!file_exists(FILE_UNLOCKED)) {
+				sleep(1);
+				$sleep_counter = $sleep_counter + 1;
+				if($sleep_counter > 10) {
+					return true;
+				}
 			}
-		}*/
-		
-		//return false;
-		
-		return !file_exists(FILE_UNLOCKED);
+			
+			return false;
+			
+		} else {
+			return !file_exists(FILE_UNLOCKED);
+		}
 	}
 	
 	private function getPanoramaFilename() {

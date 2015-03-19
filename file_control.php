@@ -8,6 +8,9 @@
 	if(isset($_GET['panorama'])) {
 		echo $ctrl->getPanorama();
 		
+	} else if(isset($_GET['load_archive'])) {
+		echo $ctrl->getArchive();
+		
 	} else if(isset($_GET['task'])) {
 		if($_GET['task'] === 'create_panorama') {
 			$ctrl->createPanorama();
