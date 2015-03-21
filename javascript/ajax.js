@@ -1,5 +1,5 @@
 var URL_HOME = 'http://localhost:84/github/cam-ctrl/';
-var URL_DEFAULT_IMG = 'http://localhost:84/github/cam-ctrl/image/default2.jpg';
+var URL_DEFAULT_IMG = 'http://localhost:84/github/cam-ctrl/image/default.jpg';
 
 //var URL_HOME = 'http://localhost/cam-ctrl/';
 //var URL_DEFAULT_IMG = 'http://localhost/cam-ctrl/image/default.png';

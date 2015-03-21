@@ -65,11 +65,11 @@
         </div>
     </nav>
 
-    <div  class="container-fluid">
+    <div id="main_content" class="container-fluid">
 	
         <div class="row">
             <div class="box">
-                <div id="main_content" class="col-lg-12">
+                <div class="col-lg-12">
 					<img id="cam_view" class="img-rounded" src="image/default.jpg" alt="Camera View" />
                 </div>
             </div>
@@ -88,30 +88,9 @@
     </footer>
 	
 	<script src="javascript/ajax.js"></script>
+	<script src="javascript/cam_ctrl.js"></script>
 	<!--<script src="javascript/wts_simulator.js"></script>-->
 	<script src="javascript/wts_testing.js"></script>
-	
-	<script>
-		
-		$('#nav_archive').click(function() {
-			$.ajax({
-				url: URL_HOME + 'file_control.php',
-				type: 'get',
-				data: { load_archive: "load_archive"},
-				dataType: 'json',
-				success: function(data) {
-					$('#main_content').html('');
-					$.each(data, function(index, value) {
-						$('#main_content').append('<p><img src="' + value + '"</img></p>');
-					});
-				},
-				error: function(xhr, status, error) {
-					alert('failed: ' + error);
-				}
-			});
-		});
-		
-	</script>
 
 </body>
 

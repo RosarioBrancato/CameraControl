@@ -26,7 +26,16 @@ class FileController {
 		$files = glob('image/archive/*');
 		$archive = array();
 		foreach($files as $file) {
-			array_push($archive, URL_ARCHIVE . basename($file));
+			$pic_info = array();
+			
+			$filename = basename($file, '.jpg');
+			$datetime = explode('_', $filename);
+			
+			$pic_info['date'] = date('d.m.Y', strtotime($datetime[0]));
+			$pic_info['time'] = date('H:i', strtotime(str_replace('-', ':', $datetime[1])));
+			$pic_info['url'] = URL_ARCHIVE . basename($file); 
+			
+			array_push($archive, $pic_info);
 		}
 		
 		echo json_encode($archive);

@@ -7,6 +7,15 @@ img {
 	font-weight: bold;
 }
 
+.archive-datetime {
+	font-size: 36px;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.margin-top-20 {
+	margin-top: 20px;
+}
 
 /* TEMPLATES CORRECTIONS */
 
