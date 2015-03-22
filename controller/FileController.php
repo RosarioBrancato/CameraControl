@@ -18,14 +18,41 @@ class FileController {
 		return '{ "path" : "'. $url . '" }';
 	}
 	
-	public function getArchive() {
+	public function getArchive($start = '', $end = 10) {
+		//check if locked
 		if($this->isLocked(true, 60)) {
-			return '{ "path" : "" }';
+			return '{}';
 		}
 		
-		$files = glob('image/archive/*');
+		//Get files and order descending
+		//Formatting: 'image/archive/yyyy-mm-dd_hh-mm-ss.jpg
+		$files_tmp = glob('image/archive/*');
+		krsort($files_tmp);
+		
+		//Reindex array
+		$files = array();
+		$files = array_values($files_tmp);
+		
+		//Select range
+		$index_start = 0;
+		if($start != '') {
+			//Format url for the search
+			$to_search = 'image/archive/' . basename($start);
+			$index_start = array_search($to_search, $files);
+			
+			if($index_start === false) {
+				//index not found, return an empty json
+				return '{}';
+			} else {
+				//Up index to select the first new image
+				$index_start++;
+			}
+		}
+		
+		//Get archive file infos
 		$archive = array();
-		foreach($files as $file) {
+		for($i = $index_start; ($i < sizeof($files) && $i < ($index_start + $end)); $i++) {
+			$file = $files[$i];
 			$pic_info = array();
 			
 			$filename = basename($file, '.jpg');
@@ -38,11 +65,45 @@ class FileController {
 			array_push($archive, $pic_info);
 		}
 		
-		echo json_encode($archive);
+		return json_encode($archive);
 	}
 	
-	public function getNewArchivePicture() {
-		//TO-DO
+	public function getNewArchivePicture($old_pic) {
+		//check if locked
+		if($this->isLocked(true, 60)) {
+			return '{}';
+		}
+		
+		//Get files and order descending
+		//Formatting: 'image/archive/yyyy-mm-dd_hh-mm-ss.jpg
+		$files_tmp = glob('image/archive/*');
+		krsort($files_tmp);
+		
+		//Reindex array
+		$files = array();
+		$files = array_values($files_tmp);
+		
+		$first_file = $files[0];
+		$archive = array();
+		if(basename($old_pic) != basename($first_file)) {
+			//Current image is not the newest, return url + info as json
+			$pic_info = array();
+			
+			$filename = basename($first_file, '.jpg');
+			$datetime = explode('_', $filename);
+			
+			$pic_info['date'] = date('d.m.Y', strtotime($datetime[0]));
+			$pic_info['time'] = date('H:i', strtotime(str_replace('-', ':', $datetime[1])));
+			$pic_info['url'] = URL_ARCHIVE . basename($first_file); 
+			
+			array_push($archive, $pic_info);
+			
+			return json_encode($archive);
+			
+		} else {
+			//Current image is the newest, return empty json
+			return '{}';
+		}
 	}
 	
 	

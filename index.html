@@ -1,86 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<!--Meta-->
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="author" content="Rosario Brancato" />
-	
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Rosario Brancato">
+
+    <title>Camera Control</title>
+
 	<!--Google jQuery csn-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" type="text/css"/>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/business-casual.css" type="text/css">
 	<!--My CSS-->
 	<link rel="stylesheet" href="css/stile.css" type="text/css" />
 	
-	<!--Titel-->
-	<title>Camera Controller</title>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"  type="text/css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" type="text/css">
+
 </head>
+
 <body>
-	<div class="container-fluid">
-		<h1 class="page-header text-center">Camera Control</h1>
 
-		<center><img id="cam_view" class="img-rounded" src="image/default.jpg" alt="Camera View" /></center>
-		<p>
-			<center>
-				<button class="left">Left</button>
-				<button class="up">Up</button>
-				<button class="home">Home</button>
-				<button class="down">Down</button>
-				<button class="right">Right</button>
-			</center>
-		</p>
-		<p>
-			<center>
-				<p>
-					<span>Speed Pan</span>
-					<input class="speedpan" type="number" />
-					<button class="set_speedpan">Set</button>
-				</p>
-			</center>
-		</p>
-		<p>
-			<center>
-				<p>
-					<span>Create panorama:</span>
-					<button class="create_panorama">Go!</button>
-				</p>
-			</center>
-		</p>
-		
-		<p>
-			<center>
-				<p>
-					<span>Move to archive:</span>
-					<button class="move_to_archive">Go!</button>
-				</p>
-			</center>
-		</p>
-		
-		<p>
-			<center>
-				<p>
-					<span>Clean archive:</span>
-					<button class="clean_archive">Go!</button>
-				</p>
-			</center>
-		</p>
-		
-		<p>
-			<center>
-				<p>
-					<a href="index_2.html">Go to Homepage!</a>
-				</p>
-			</center>
-		</p>
+    <div class="brand">Camera Control</div>
 
-		<script src="javascript/ajax.js"></script>
-		<!--<script src="javascript/wts_simulator.js"></script>-->
-		<script src="javascript/wts_testing.js"></script>
-	</div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="index.html">Camera Control</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+						<button id="nav_panorama" class="btn btn-link selected">Panorama</button>
+                    </li>
+                    <li>
+						<button id="nav_archive" class="btn btn-link btn">Archive</button>
+                    </li>
+                    <li>
+						<button id="nav_admin" class="btn btn-link">Administration</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="main_content" class="container-fluid">
+	
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+					<img id="cam_view" class="img-rounded" src="image/default.jpg" alt="Camera View" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>Copyright &copy; Rosario Brancato</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+	
+	<script src="javascript/constants.js"></script>
+	<script src="javascript/panorama.js"></script>
+	<script src="javascript/archive.js"></script>
+	<script src="javascript/administration.js"></script>
+	<!--<script src="javascript/wts_simulator.js"></script>-->
+
 </body>
+
+</html>
