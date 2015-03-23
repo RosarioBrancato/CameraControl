@@ -9,7 +9,7 @@ $('#nav_admin').click(function(event) {
 	html += '<div class="row">';
 	html += '	<div class="box">';
 	html += '		<div class="col-lg-12">';
-	html += '			<center><p class="form-inline">User name: <input type="text" class="form-control" id="username" maxlen="20" /></p></center>';
+	html += '			<center><p class="form-inline">Username: <input type="text" class="form-control" id="username" maxlen="20" /></p></center>';
 	html += '			<center><p class="form-inline">Password: <input type="password" class="form-control" id="password" maxlen="20" /></p></center>';
 	html += '			<center><input type="button" class="btn btn-warning" id="login" value="Login and open the Camera Control Panel" /></center>';
 	html += '			<center><p id="feedback"> </p></center>';
