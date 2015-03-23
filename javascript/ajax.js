@@ -1,24 +1,6 @@
 window.setInterval(function() {
-	/*$.ajax({
-		url: URL_HOME + 'file_control.php',
-		type: 'get',
-		data: { panorama: "panorama"},
-		dataType: 'json',
-		success: function(data) {
-			if(data.path.length > 0) {
-				$('#cam_view').attr('src', data.path);
-				//alert('success: ' + data);
-			}
-		},
-		error: function(xhr, status, error) {
-			$('#cam_view').attr('src', URL_DEFAULT_IMG);
-			//alert('failed: ' + error);
-		}
-	});*/
-	
 	d = new Date();
 	$("#cam_view").attr("src", URL_CAM_SNAPSHOT + d.getTime());
-	
 }, 1000);
 
 $('.home').click(function() {

@@ -1,3 +1,18 @@
+<?php 
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+include_once('constants.php');
+
+if(!isset($_SESSION['username'])) {
+	header('Location: ' . URL_HOME);
+	
+} else {
+	
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,3 +96,7 @@
 		<script src="javascript/wts_testing.js"></script>
 	</div>
 </body>
+
+<?php
+}
+?>
