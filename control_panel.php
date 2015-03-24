@@ -41,7 +41,7 @@ if(!isset($_SESSION['username'])) {
 	<div class="container-fluid">
 		<h1 class="page-header text-center">Camera Control Panel</h1>
 
-		<center><img id="cam_view" class="img-rounded" src="image/default.jpg" alt="Camera View" /></center>
+		<center><img id="cam_view" class="img-rounded" src="" alt="Camera View" /></center>
 		<p>
 			<center>
 				<button class="left">Left</button>

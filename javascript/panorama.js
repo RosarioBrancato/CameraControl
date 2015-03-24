@@ -10,7 +10,7 @@ $('#nav_panorama').click(function() {
 	html += '<div class="row">';
 	html += '	<div class="box">';
 	html += '		<div class="col-lg-12">';
-	html += '			<img id="cam_view" class="img-rounded" src="' + URL_DEFAULT_IMG + '" alt="Camera View" />'
+	html += '			<img id="panorama_view" class="img-rounded" src="' + URL_DEFAULT_IMG + '" alt="Camera View" />'
 	html += '		</div>';
 	html += '	</div>';
 	html += '</div>';
@@ -24,11 +24,11 @@ $('#nav_panorama').click(function() {
 		success: function(data) {
 			//insert path to panorama picture
 			if(data.path.length > 0) {
-				$('#cam_view').attr('src', data.path);
+				$('#panorama_view').attr('src', data.path);
 			}
 		},
 		error: function(xhr, status, error) {
-			$('#cam_view').attr('src', URL_DEFAULT_IMG);
+			$('#panorama_view').attr('src', URL_DEFAULT_IMG);
 			//alert('failed: ' + error);
 		}
 	});
@@ -44,11 +44,12 @@ window.setInterval(function() {
 			dataType: 'json',
 			success: function(data) {
 				if(data.path.length > 0) {
-					$('#cam_view').attr('src', data.path);
+					$('#panorama_view').attr('src', data.path);
 				}
 			},
 			error: function(xhr, status, error) {
-				$('#cam_view').attr('src', URL_DEFAULT_IMG);
+				alert('Error');
+				$('#panorama_view').attr('src', URL_DEFAULT_IMG);
 			}
 		});
 	}

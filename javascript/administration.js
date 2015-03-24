@@ -33,7 +33,7 @@ $('#nav_admin').click(function(event) {
 				if(!$.isEmptyObject(data)) {
 					if(data.success == "1") {
 						//open camera control panel
-						window.open(URL_HOME + 'control_panel.php', '_blank', 'height=600,width=1000');
+						window.open(URL_HOME + 'control_panel.php', '_blank', 'height=650,width=600,scrollbars=yes');
 						$('#username').val('');
 						$('#password').val('');
 					} else {
