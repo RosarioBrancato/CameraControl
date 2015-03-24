@@ -7,8 +7,10 @@
 	include_once('constants.php');
 	include_once('controller/Login.php');
 	
+	//Create login object
 	$login = new Login();
 	
+	//Login
 	if(isset($_POST['login'])) {
 		$username = '';
 		$password = '';

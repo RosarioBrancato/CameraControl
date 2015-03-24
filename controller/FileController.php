@@ -2,6 +2,7 @@
 
 class FileController {
 	
+	//Get current panorama image
 	public function getPanorama() {		
 		if($this->isLocked()) {
 			return '{ "path" : "" }';
@@ -18,6 +19,7 @@ class FileController {
 		return '{ "path" : "'. $url . '" }';
 	}
 	
+	//Get images from the archive
 	public function getArchive($start = '', $end = 10) {
 		//check if locked
 		if($this->isLocked(true, 60)) {
@@ -68,6 +70,7 @@ class FileController {
 		return json_encode($archive);
 	}
 	
+	//Get the newest archive image
 	public function getNewArchivePicture($old_pic) {
 		//check if locked
 		if($this->isLocked(true, 60)) {
@@ -108,6 +111,7 @@ class FileController {
 	
 	
 	
+	//Create a panorama image
 	public function createPanorama() {
 		//Lock access to pictures
 		$this->lock();
@@ -179,6 +183,7 @@ class FileController {
 		$this->unlock();
 	}
 	
+	//Move the current panorama image to the archive
 	public function movePanoramaToArchive() {
 		$this->lock();
 		
@@ -190,6 +195,7 @@ class FileController {
 		$this->unlock();
 	}
 	
+	//Delete images in the archive which are older than two weeks
 	public function cleanArchive() {
 		$this->lock();
 		
@@ -213,6 +219,7 @@ class FileController {
 	
 	
 	
+	//Lock the image file system
 	private function lock() {
 		if(!file_exists(FILE_LOCKED)) {
 			if(file_exists(FILE_UNLOCKED)) {
@@ -223,6 +230,7 @@ class FileController {
 		}
 	}
 	
+	//Unlock the image file system
 	private function unlock() {
 		if(!file_exists(FILE_UNLOCKED)) {
 			if(file_exists(FILE_LOCKED)) {
@@ -233,6 +241,7 @@ class FileController {
 		}
 	}
 	
+	//Check if the image file system is locked
 	private function isLocked($wait = false, $seconds = 10) {
 		if($wait) {
 			$sleep_counter = 0;
@@ -251,6 +260,7 @@ class FileController {
 		}
 	}
 	
+	//Get the filename of the current panorama image
 	private function getPanoramaFilename() {
 		$files = glob('image/panorama/*');
 		$filename = '';
@@ -260,6 +270,7 @@ class FileController {
 		return $filename;
 	}
 
+	//Move cam for createing the part images for the panorama image
 	private function moveCam() {
 		file_get_contents(URL_CAM_CTRL . '?move=right&speedpan=-5');
 		file_get_contents(URL_CAM_CTRL . '?move=right&speedpan=-5');

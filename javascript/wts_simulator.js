@@ -1,4 +1,4 @@
-//WTS SIMULATOR
+//WINDOW TASK SCHEDULER SIMULATOR
 
 //Create new panorama picture
 window.setInterval(function() {

@@ -1,3 +1,4 @@
+//EVENT-FUNCTIONS FOR THE CAMERA CONTROL PANEL
 window.setInterval(function() {
 	d = new Date();
 	$("#cam_view").attr("src", URL_CAM_SNAPSHOT + d.getTime());

@@ -1,3 +1,4 @@
+//FUNCTIONS FOR THE TAB ADMINISTRATION
 $('#nav_admin').click(function(event) {
 	//highlight navigation point
 	$('#nav_panorama').removeClass('selected');
@@ -18,6 +19,7 @@ $('#nav_admin').click(function(event) {
 	html += '</div>';
 	$('#main_content').html(html);
 	
+	//Add click event
 	$('#login').on('click', function() {
 		var u_name = $('#username').val();
 		var pwd = $('#password').val();
@@ -28,9 +30,9 @@ $('#nav_admin').click(function(event) {
 			data: { login: 'login', username: u_name, password: pwd },
 			dataType: 'json',
 			success: function(data) {
-				//insert path to panorama picture
 				if(!$.isEmptyObject(data)) {
 					if(data.success == "1") {
+						//open camera control panel
 						window.open(URL_HOME + 'control_panel.php', '_blank', 'height=600,width=1000');
 						$('#username').val('');
 						$('#password').val('');

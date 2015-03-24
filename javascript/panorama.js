@@ -1,3 +1,4 @@
+//FUNCTIONS FOR THE TAB PANORAMA
 $('#nav_panorama').click(function() {
 	//highlight navigation point
 	$('#nav_archive').removeClass('selected');
@@ -33,6 +34,7 @@ $('#nav_panorama').click(function() {
 	});
 });
 
+//Check if there is a new panorama image
 window.setInterval(function() {
 	if($('#nav_panorama').hasClass('selected')) {
 		$.ajax({
@@ -43,12 +45,10 @@ window.setInterval(function() {
 			success: function(data) {
 				if(data.path.length > 0) {
 					$('#cam_view').attr('src', data.path);
-					//alert('success: ' + data);
 				}
 			},
 			error: function(xhr, status, error) {
 				$('#cam_view').attr('src', URL_DEFAULT_IMG);
-				//alert('failed: ' + error);
 			}
 		});
 	}

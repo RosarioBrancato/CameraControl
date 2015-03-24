@@ -1,3 +1,4 @@
+//FUNCTIONS FOR THE TAB ARCHIVE
 $('#nav_archive').click(function() {
 	//highlight navigation point
 	$('#nav_panorama').removeClass('selected');
@@ -27,6 +28,7 @@ $('#nav_archive').click(function() {
 	});
 });
 
+//Load older archive image while scrolling
 $(window).scroll(function()  {
 	if($('#nav_archive').hasClass('selected')) {
 		var height = $(window).height();
@@ -58,6 +60,7 @@ $(window).scroll(function()  {
 	}
 });
 
+//Check if new image were put in the archive
 window.setInterval(function() {
 	if($('#nav_archive').hasClass('selected')) {
 		var first_image_url = $('#first_image').val();
@@ -79,6 +82,7 @@ window.setInterval(function() {
 	}
 }, 10000);
 
+//Helper function to create the box layout of each image
 function getArchiveHtmlRow(date, time, url) {
 	var html = '';
 	

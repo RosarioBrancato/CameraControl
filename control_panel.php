@@ -7,6 +7,7 @@ if (session_status() == PHP_SESSION_NONE) {
 include_once('constants.php');
 
 if(!isset($_SESSION['username'])) {
+	//Redirect if not logged in
 	header('Location: ' . URL_HOME);
 	
 } else {

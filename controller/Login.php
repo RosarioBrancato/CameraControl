@@ -5,6 +5,7 @@ class Login {
 	private $username = 'admin';
 	private $password = '1234';
 
+	//Check if the login is valid
 	public function isLoginValid($username, $password) {
 		$retVar = false;
 		

@@ -1,4 +1,4 @@
-//WTS TESTING
+//WINDOW TASK SCHEDULER TESTING
 
 //Create new panorama picture
 $('.create_panorama').click(function() {
